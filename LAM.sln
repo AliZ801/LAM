@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LAM", "LAM\LAM.csproj", "{9E5E2419-E367-4716-9FE2-8912E7DBCFBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E5E2419-E367-4716-9FE2-8912E7DBCFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E5E2419-E367-4716-9FE2-8912E7DBCFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E5E2419-E367-4716-9FE2-8912E7DBCFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E5E2419-E367-4716-9FE2-8912E7DBCFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75EEB7B3-6C8D-46F8-8284-B5F179B405CB}
+	EndGlobalSection
+EndGlobal

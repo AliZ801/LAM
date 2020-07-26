@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using LAM.DataAccess.Data;
+using LAM.DataAccess.Data.IRepository;
+using LAM.DataAccess.Data.Repository;
 
 namespace LAM
 {
@@ -32,6 +34,7 @@ namespace LAM
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitofWork, UnitofWork>();
             services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }

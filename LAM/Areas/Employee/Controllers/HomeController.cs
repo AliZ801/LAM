@@ -9,7 +9,7 @@ using LAM.Models;
 
 namespace LAM.Controllers
 {
-    [Area("Admin")]
+    [Area("Employee")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

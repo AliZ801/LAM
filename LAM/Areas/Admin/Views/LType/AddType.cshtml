@@ -1,0 +1,64 @@
+﻿@model LAM.Models.ViewModels.AdminVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Add New Leave Type";
+
+    if(Model.LType.Id != 0)
+    {
+        ViewData["Title"] = "Update Leave Type";
+    }
+    else
+    {
+        ViewData["Title"] = "Add New Leave Type";
+    }
+}
+
+<div class="container">
+    <div class="col-5 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddType" class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if(Model.LType.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.LType.Id" />
+                title = "Update Leave Type";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" />
+
+            <div class="row form-group">
+                <label asp-for="@Model.LType.Type"></label>
+                <input asp-for="@Model.LType.Type" class="form-control" />
+                <span asp-validation-for="@Model.LType.Type" class="text-danger"></span>
+            </div>
+            
+            <div class="row form-group">
+
+                @if (Model.LType.Id != 0)
+                {
+                    <div class="col-5">
+                        <button asp-route-Id="@Model.LType.Id" class="btn btn-primary text-white form-control">Update</button>
+                    </div>
+                    <div class="col-5">
+                        <a asp-action="Index" class="btn btn-primary text-white form-control">Back to List</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-5">
+                        <button class="btn btn-primary text-white form-control">Create</button>
+                    </div>
+                    <div class="col-5">
+                        <a asp-action="Index" class="btn btn-primary text-white form-control">Back to List</a>
+                    </div>
+                }
+
+            </div>
+
+        </form>
+    </div>
+</div>

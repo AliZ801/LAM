@@ -9,5 +9,7 @@ namespace LAM.Utility
         public const string Submitted = "Submitted";
         public const string Approved = "Approved";
         public const string Rejected = "Rejected";
+
+        public const int AL = 30;
     }
 }

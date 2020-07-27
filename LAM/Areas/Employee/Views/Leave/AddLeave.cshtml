@@ -1,0 +1,100 @@
+﻿@model LAM.Models.ViewModels.AdminVM
+@using LAM.Utility;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var title = "Apply for new Leave";
+
+    if (Model.Leave.Id != 0)
+    {
+        ViewData["Title"] = "Update Leave Info";
+    }
+    else
+    {
+        ViewData["Title"] = "Apply for new Leave";
+    }
+}
+
+<div class="container">
+    <div class="col-6 m-0 m-auto border rounded">
+        <form method="post" asp-action="AddLeave" class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @if (Model.Leave.Id != 0)
+            {
+                <input type="hidden" asp-for="@Model.Leave.Id" />
+                title = "Apply for new Leave";
+            }
+
+            <div class="row justify-content-center">
+                <h3 class="pt-1">@title</h3>
+            </div>
+            <hr class="w-75" />
+
+            <div class="row form-group">
+                <label>Available Leaves <span class="text-muted">(PAID)</span>: @Model.Leave.AL days</label>
+            </div>
+
+            <div class="row form-group">
+                <label>Leave Type</label>
+                @Html.DropDownListFor(i => i.Leave.TypeId, Model.LTypeList, "Select Leave Type", new { @class = "form-control" })
+            </div>
+
+            <div class="row form-group">
+                <label>Start Date <span class="text-muted small">(MM-DD-YYYY)</span></label>
+                <input type="date" asp-for="@Model.Leave.SDate" class="form-control" />
+                <span asp-validation-for="@Model.Leave.SDate" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label>End Date <span class="text-muted small">(MM-DD-YYYY)</span></label>
+                <input type="date" asp-for="@Model.Leave.EDate" class="form-control" />
+                <span asp-validation-for="@Model.Leave.EDate" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Leave.Reason"></label>
+                <input asp-for="@Model.Leave.Reason" class="form-control" />
+                <span asp-validation-for="@Model.Leave.Reason" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+                <label asp-for="@Model.Leave.Address"></label>
+                <textarea asp-for="@Model.Leave.Address" class="form-control" style="height:100px"></textarea>
+                <span asp-validation-for="@Model.Leave.Address" class="text-danger"></span>
+            </div>
+
+            <div class="row form-group">
+
+                @if (Model.Leave.Id != 0)
+                {
+                    if (Model.Leave.Status == SD.Submitted)
+                    {
+                        <div class="col-5">
+                            <button type="submit" asp-route-id="@Model.Leave.Id" class="btn btn-primary text-white form-control">Update</button>
+                        </div>
+                        <div class="col-5">
+                            <a asp-action="Index" class="btn btn-primary text-white form-control">Back to List</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-5">
+                            <a asp-action="Index" class="btn btn-primary text-white form-control">Back to List</a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-5">
+                        <button type="submit" class="btn btn-primary text-white form-control">Apply</button>
+                    </div>
+                    <div class="col-5">
+                        <a asp-action="Index" class="btn btn-primary text-white form-control">Back to List</a>
+                    </div>
+                }
+
+            </div>
+        </form>
+    </div>
+</div>

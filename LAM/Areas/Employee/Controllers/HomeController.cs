@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using LAM.Models;
+using LAM.Models.ViewModels;
 
 namespace LAM.Controllers
 {
@@ -20,11 +21,6 @@ namespace LAM.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
